@@ -1,4 +1,15 @@
-let playerScore = 0;
+const playerChoiceRock = document.querySelector(".playerRock")
+const playerChoicePaper = document.querySelector(".playerPaper")
+const playerChoiceScissors = document.querySelector(".playerScissors")
+
+const computerChoiceRock = document.querySelector(".computerRock")
+const computerChoicePaper = document.querySelector(".computerPaper")
+const computerChoiceScissors = document.querySelector(".computerScissors")
+
+
+
+
+/* let playerScore = 0;
 let computerScore = 0;
 
 
@@ -48,3 +59,4 @@ while(playerScore < 5 && computerScore < 5) {
         alert(`5'TE BİTER... OYUN DEVAM EDİYOR !!! ${playerScore} - ${computerScore}`)
     }
 };
+ */
