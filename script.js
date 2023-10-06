@@ -6,6 +6,9 @@ const computerChoiceRock = document.querySelector(".computerRock");
 const computerChoicePaper = document.querySelector(".computerPaper");
 const computerChoiceScissors = document.querySelector(".computerScissors");
 
+const playerScoreSpan = document.querySelector(".playerScore");
+const computerScoreSpan = document.querySelector(".computerScore");
+
 let playerScore = 0;
 let computerScore = 0;
 let getPlayerChoice;
@@ -39,18 +42,20 @@ function game() {
 
     if ((getPlayerChoice == getComputerChoice )) {
         console.log(`${getPlayerChoice} vs ${getComputerChoice} BERABERE!!! Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
-        alert(`${getPlayerChoice} vs ${getComputerChoice} BERABERE!!! Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
+        
     } else if ((getPlayerChoice == "taş" && getComputerChoice == "makas") || (getPlayerChoice == "kağıt" && getComputerChoice == "taş") || (getPlayerChoice == "makas" && getComputerChoice == "kağıt"))  {
         playerScore += 1;
         console.log(`${getPlayerChoice} vs ${getComputerChoice} KAZANDINIZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yener. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
-        alert(`${getPlayerChoice} vs ${getComputerChoice} KAZANDINIZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yener. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
+
     } else if ( (getComputerChoice == "taş" && getPlayerChoice == "makas") || (getComputerChoice == "kağıt" && getPlayerChoice == "taş") || (getComputerChoice == "makas" && getPlayerChoice == "kağıt") ) {
         computerScore += 1;
         console.log(`${getPlayerChoice} vs ${getComputerChoice} KAYBETTİNİZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yenemez. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
-        alert(`${getPlayerChoice} vs ${getComputerChoice} KAYBETTİNİZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yenemez. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
+
     } else {
         console.log("HATA !!! TAŞ, KAĞIT VEYA MAKAS YAZMALISINIZ.");
     };
+    playerScoreSpan.innerHTML = `SCORE: ${playerScore}`;
+    computerScoreSpan.innerHTML = `SCORE: ${computerScore}`;
 };
 
 playerChoiceRock.addEventListener("click", game);
