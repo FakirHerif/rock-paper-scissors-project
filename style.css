@@ -1,0 +1,37 @@
+html {
+    background-image: url(img/background.png);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.plcomp {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.player {
+    border: 2px solid red;
+    margin: 10px;
+
+}
+
+.computer {
+    border: 2px solid red;
+    margin: 10px;
+
+}
+
+
+.ropasc {
+    display: flex;
+    justify-content: space-between;
+}
