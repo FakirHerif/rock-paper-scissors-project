@@ -1,30 +1,41 @@
-const playerChoiceRock = document.querySelector(".playerRock")
-const playerChoicePaper = document.querySelector(".playerPaper")
-const playerChoiceScissors = document.querySelector(".playerScissors")
+const playerChoiceRock = document.querySelector(".playerRock");
+const playerChoicePaper = document.querySelector(".playerPaper");
+const playerChoiceScissors = document.querySelector(".playerScissors");
 
-const computerChoiceRock = document.querySelector(".computerRock")
-const computerChoicePaper = document.querySelector(".computerPaper")
-const computerChoiceScissors = document.querySelector(".computerScissors")
+const computerChoiceRock = document.querySelector(".computerRock");
+const computerChoicePaper = document.querySelector(".computerPaper");
+const computerChoiceScissors = document.querySelector(".computerScissors");
 
-
-
-
-/* let playerScore = 0;
+let playerScore = 0;
 let computerScore = 0;
+let getPlayerChoice;
+
+playerChoiceRock.addEventListener("click", function() {
+   getPlayerChoice = "taş";
+   console.log(getPlayerChoice);
+})
+
+playerChoicePaper.addEventListener("click", function() {
+    getPlayerChoice = "kağıt";
+    console.log(getPlayerChoice);
+ })
+
+playerChoiceScissors.addEventListener("click", function() {
+    getPlayerChoice = "makas";
+    console.log(getPlayerChoice);
+ })
 
 
-function game (){
-    let getPlayerChoice = prompt("Taş, Kağıt, Makas").toString().toLocaleLowerCase();
-    console.log("Seçiminiz: " + getPlayerChoice);
-    
+function computerSelection() {
     let getComputerChoice = ["taş", "kağıt", "makas"];
+    return getComputerChoice[Math.floor(Math.random() * getComputerChoice.length)]
+};
 
-    function computerSelection() {
-        getComputerChoice = getComputerChoice[Math.floor(Math.random() * getComputerChoice.length)]
-        console.log("Rakibin Seçimi: " + getComputerChoice);
-    };
-    
-    computerSelection();
+
+function game() {
+
+    const getComputerChoice = computerSelection();
+    console.log("Rakibin Seçimi: " + getComputerChoice);
 
     if ((getPlayerChoice == getComputerChoice )) {
         console.log(`${getPlayerChoice} vs ${getComputerChoice} BERABERE!!! Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
@@ -39,10 +50,16 @@ function game (){
         alert(`${getPlayerChoice} vs ${getComputerChoice} KAYBETTİNİZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yenemez. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
     } else {
         console.log("HATA !!! TAŞ, KAĞIT VEYA MAKAS YAZMALISINIZ.");
-        alert("HATA !!! TAŞ, KAĞIT VEYA MAKAS YAZMALISINIZ.");
-    }
+    };
 };
 
+playerChoiceRock.addEventListener("click", game);
+playerChoicePaper.addEventListener("click", game);
+playerChoiceScissors.addEventListener("click", game);
+
+
+
+/*
 while(playerScore < 5 && computerScore < 5) {
     game();
     if (playerScore == 5) {
