@@ -6,6 +6,8 @@ Rock paper scissors game created with HTML, CSS and JS.
 
 # Live Demo Link
 
+[Click this link to see live preview.](https://fakirherif.github.io/rock-paper-scissors-project/)
+
 # About The Game
 
 - This game is played against the computer.
