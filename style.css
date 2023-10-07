@@ -79,4 +79,5 @@ span{
 h2 {
     font-size: 45px;
     text-shadow: 5px 4px 3px rgb(0, 0, 0);
+    text-align: center;
 }
