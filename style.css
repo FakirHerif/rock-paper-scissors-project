@@ -1,14 +1,18 @@
 html {
     background-image: url(img/background.png);
     color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }
 
 h1 {
     text-align: center;
+    font-size: 100px;
 }
 
 h4 {
     text-align: center;
+    font-size: 30px;
 }
 
 .plcomp {
@@ -18,20 +22,61 @@ h4 {
     justify-content: center;
 }
 
-.player {
-    border: 2px solid red;
-    margin: 10px;
-
+.player, .computer {
+    margin: 20px;
+    background-color: rgba(49, 102, 226, 0.139);
+    padding: 15px;
+    border-radius: 20px;
+    border: 10px solid #ffffff9b;
+    box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.635);
 }
-
-.computer {
-    border: 2px solid red;
-    margin: 10px;
-
-}
-
 
 .ropasc {
     display: flex;
     justify-content: space-between;
+}
+
+.ropasc img {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 8px 10px 5px rgba(0, 0, 0, 0.635);
+    border: 6px solid #000000;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+
+.ropasc img:hover {
+    transform: translate(1px,3px);
+    background-color: #edeaea;
+    border: 6px solid #2bff00;;
+}
+
+.ropasc img:active {
+    transform: translate(3px,6px);
+    box-shadow: none;
+}
+
+.copl {
+    width: 50px;
+    height: 50px;
+}
+
+span{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.imgsc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 45px;
+    text-shadow: 5px 4px 3px rgb(0, 0, 0);
 }
