@@ -9,7 +9,11 @@ const computerChoiceScissors = document.querySelector(".computerScissors");
 const playerScoreSpan = document.querySelector(".playerScore");
 const computerScoreSpan = document.querySelector(".computerScore");
 
-const showScore = document.querySelector(".points")
+const showScore = document.querySelector(".points");
+
+const gameOver = document.querySelector(".gameOver");
+
+const playAgain = document.querySelector(".playAgain");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -40,7 +44,7 @@ function computerSelection() {
 
 function game() {
 
-    const getComputerChoice = computerSelection();
+    getComputerChoice = computerSelection();
     console.log("Rakibin Seçimi: " + getComputerChoice);
 
 
@@ -94,7 +98,7 @@ function endgame() {
         console.log("kazandın");
         playerScore = 0;
         computerScore = 0;
-        showScore.innerHTML = `GAME OVER ! YOU WON ! TRY AGAIN !!!`;
+        gameOver.innerHTML = `GAME OVER ! YOU WON ! TRY AGAIN !!!`;
         playerChoiceRock.removeEventListener("click", game);
         playerChoicePaper.removeEventListener("click", game);
         playerChoiceScissors.removeEventListener("click", game);
@@ -102,12 +106,36 @@ function endgame() {
         console.log("kaybettin")
         playerScore = 0;
         computerScore = 0;
-        showScore.innerHTML = `GAME OVER ! YOU LOST ! TRY AGAIN !!!`;
+        gameOver.innerHTML = `GAME OVER ! YOU LOST ! TRY AGAIN !!!`;
         playerChoiceRock.removeEventListener("click", game);
         playerChoicePaper.removeEventListener("click", game);
         playerChoiceScissors.removeEventListener("click", game);
     }
+    playAgain.disabled = false; 
 }
+
+
+playAgain.addEventListener("click", function() {
+    console.log("tıkladın")
+    playerScore = 0;
+    computerScore = 0;
+    round = 0;
+    playerScoreSpan.innerHTML = `SCORE: ${playerScore}`;
+    computerScoreSpan.innerHTML = `SCORE: ${computerScore}`;
+    playerChoiceRock.addEventListener("click", game);
+    playerChoicePaper.addEventListener("click", game);
+    playerChoiceScissors.addEventListener("click", game);
+    showScore.innerHTML = "CHOICE YOUR WEAPONS !!! 💥 💥 💥";
+    gameOver.innerHTML = "";
+
+
+    document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "white";
+
+    document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "white";
+
+    playAgain.disabled = true;
+});
+
 
 playerChoiceRock.addEventListener("click", game);
 playerChoicePaper.addEventListener("click", game);
