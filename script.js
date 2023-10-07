@@ -43,22 +43,40 @@ function game() {
     const getComputerChoice = computerSelection();
     console.log("Rakibin Seçimi: " + getComputerChoice);
 
+
+    playerChoiceRock.style.backgroundColor = "";
+    playerChoicePaper.style.backgroundColor = "";
+    playerChoiceScissors.style.backgroundColor = "";
+    computerChoiceRock.style.backgroundColor = "";
+    computerChoicePaper.style.backgroundColor = "";
+    computerChoiceScissors.style.backgroundColor = "";
+
+
     if ((getPlayerChoice == getComputerChoice )) {
         round += 1;
         console.log(`${getPlayerChoice} vs ${getComputerChoice} BERABERE!!! Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
         showScore.innerHTML = `🚩 ROUND ${round} : ${getPlayerChoice.toUpperCase()} VS ${getComputerChoice.toUpperCase()} 🔊 IT'S A TIE 🙄`;
         
+        document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "yellow";
+        document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "yellow";
+
     } else if ((getPlayerChoice == "rock" && getComputerChoice == "scissors") || (getPlayerChoice == "paper" && getComputerChoice == "rock") || (getPlayerChoice == "scissors" && getComputerChoice == "paper"))  {
         playerScore += 1;
         round += 1;
         showScore.innerHTML = `🚩 ROUND ${round} : ${getPlayerChoice.toUpperCase()} BEATS ${getComputerChoice.toUpperCase()} 🔊 YOU WON 🤩`;
         console.log(`${getPlayerChoice} vs ${getComputerChoice} KAZANDINIZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yener. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
 
+        document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "rgb(0, 255, 98)";
+        document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "red";
+
     } else if ( (getComputerChoice == "rock" && getPlayerChoice == "scissors") || (getComputerChoice == "paper" && getPlayerChoice == "rock") || (getComputerChoice == "scissors" && getPlayerChoice == "paper") ) {
         computerScore += 1;
         round += 1;
         showScore.innerHTML = `🚩 ROUND ${round} : ${getComputerChoice.toUpperCase()} BEATS ${getPlayerChoice.toUpperCase()} 🔊 YOU LOST 😭`;
         console.log(`${getPlayerChoice} vs ${getComputerChoice} KAYBETTİNİZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yenemez. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
+
+        document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "red";
+        document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "rgb(0, 255, 98)";
 
     } else {
         console.log("HATA !!!");

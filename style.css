@@ -36,6 +36,11 @@ h4 {
     justify-content: space-between;
 }
 
+.ropasc div {
+    display: flex;
+    flex-direction: column;
+}
+
 .ropasc img {
     width: 100px;
     height: 100px;
@@ -49,10 +54,20 @@ h4 {
     transition: transform 0.2s;
 }
 
+.ropasc p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -1px;
+    font-size: 20px;
+    color: rgb(212, 212, 212);
+    text-shadow: 5px 4px 3px rgba(0, 0, 0, 0.689);
+
+}
+
 .ropasc img:hover {
     transform: translate(1px,3px);
     background-color: #edeaea;
-    border: 6px solid #2bff00;;
+    border: 6px solid blue;
 }
 
 .ropasc img:active {
