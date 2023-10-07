@@ -84,29 +84,31 @@ function game() {
     playerScoreSpan.innerHTML = `SCORE: ${playerScore}`;
     computerScoreSpan.innerHTML = `SCORE: ${computerScore}`;
 
+    if (playerScore === 5 || computerScore === 5) {
+        endgame();
+    }
 };
+
+function endgame() {
+    if (playerScore === 5){
+        console.log("kazandın");
+        playerScore = 0;
+        computerScore = 0;
+        showScore.innerHTML = `GAME OVER ! YOU WON ! TRY AGAIN !!!`;
+        playerChoiceRock.removeEventListener("click", game);
+        playerChoicePaper.removeEventListener("click", game);
+        playerChoiceScissors.removeEventListener("click", game);
+    } else if (computerScore === 5) {
+        console.log("kaybettin")
+        playerScore = 0;
+        computerScore = 0;
+        showScore.innerHTML = `GAME OVER ! YOU LOST ! TRY AGAIN !!!`;
+        playerChoiceRock.removeEventListener("click", game);
+        playerChoicePaper.removeEventListener("click", game);
+        playerChoiceScissors.removeEventListener("click", game);
+    }
+}
 
 playerChoiceRock.addEventListener("click", game);
 playerChoicePaper.addEventListener("click", game);
 playerChoiceScissors.addEventListener("click", game);
-
-
-
-/*
-while(playerScore < 5 && computerScore < 5) {
-    game();
-    if (playerScore == 5) {
-        console.log(`OYUN ${playerScore} - ${computerScore} BİTTİ. KAZANDINIZ TEBRİKLER !!!`);
-        alert(`OYUN ${playerScore} - ${computerScore} BİTTİ. KAZANDINIZ TEBRİKLER !!!`);
-    } else if (playerScore == computerScore) {
-        console.log(`SKOR: ${playerScore} - ${computerScore} KRİTİK BİR AN PUANLAR EŞİT !!!`);
-        alert(`SKOR: ${playerScore} - ${computerScore} KRİTİK BİR AN PUANLAR EŞİT !!!`);
-    } else if (computerScore == 5) {
-        console.log(`OYUN ${playerScore} - ${computerScore} BİTTİ. ÜZGÜNÜM KAYBETTİNİZ !!!`);
-        alert(`OYUN ${playerScore} - ${computerScore} BİTTİ. ÜZGÜNÜM KAYBETTİNİZ !!!`);
-    } else {
-        console.log(`5'TE BİTER... OYUN DEVAM EDİYOR !!! ${playerScore} - ${computerScore}`)
-        alert(`5'TE BİTER... OYUN DEVAM EDİYOR !!! ${playerScore} - ${computerScore}`)
-    }
-};
- */
