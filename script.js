@@ -20,21 +20,18 @@ let computerScore = 0;
 let getPlayerChoice;
 let round = 0;
 
-/* playAgain.style.visibility = "hidden"; */
+playAgain.style.visibility = "hidden";
 
 playerChoiceRock.addEventListener("click", function() {
    getPlayerChoice = "rock";
-   console.log(getPlayerChoice);
 })
 
 playerChoicePaper.addEventListener("click", function() {
     getPlayerChoice = "paper";
-    console.log(getPlayerChoice);
  })
 
 playerChoiceScissors.addEventListener("click", function() {
     getPlayerChoice = "scissors";
-    console.log(getPlayerChoice);
  })
 
 
@@ -47,8 +44,6 @@ function computerSelection() {
 function game() {
 
     getComputerChoice = computerSelection();
-    console.log("Rakibin Seçimi: " + getComputerChoice);
-
 
     playerChoiceRock.style.backgroundColor = "";
     playerChoicePaper.style.backgroundColor = "";
@@ -57,10 +52,8 @@ function game() {
     computerChoicePaper.style.backgroundColor = "";
     computerChoiceScissors.style.backgroundColor = "";
 
-
     if ((getPlayerChoice == getComputerChoice )) {
         round += 1;
-        console.log(`${getPlayerChoice} vs ${getComputerChoice} BERABERE!!! Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
         showScore.innerHTML = `🚩 ROUND ${round} : ${getPlayerChoice.toUpperCase()} VS ${getComputerChoice.toUpperCase()} 🔊 IT'S A TIE 🙄`;
         
         document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "yellow";
@@ -70,7 +63,6 @@ function game() {
         playerScore += 1;
         round += 1;
         showScore.innerHTML = `🚩 ROUND ${round} : ${getPlayerChoice.toUpperCase()} BEATS ${getComputerChoice.toUpperCase()} 🔊 YOU WON 🤩`;
-        console.log(`${getPlayerChoice} vs ${getComputerChoice} KAZANDINIZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yener. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
 
         document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "rgb(0, 255, 98)";
         document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "red";
@@ -79,13 +71,12 @@ function game() {
         computerScore += 1;
         round += 1;
         showScore.innerHTML = `🚩 ROUND ${round} : ${getComputerChoice.toUpperCase()} BEATS ${getPlayerChoice.toUpperCase()} 🔊 YOU LOST 😭`;
-        console.log(`${getPlayerChoice} vs ${getComputerChoice} KAYBETTİNİZ!!! ${getPlayerChoice} ${getComputerChoice}'ı yenemez. Puanınız: ${playerScore} - Rakibin Puanı: ${computerScore}`);
 
         document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "red";
         document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "rgb(0, 255, 98)";
 
     } else {
-        console.log("HATA !!!");
+        console.log("ERROR !!!");
     };
     playerScoreSpan.innerHTML = `SCORE: ${playerScore}`;
     computerScoreSpan.innerHTML = `SCORE: ${computerScore}`;
@@ -97,7 +88,6 @@ function game() {
 
 function endgame() {
     if (playerScore === 5){
-        console.log("kazandın");
         playerScore = 0;
         computerScore = 0;
         gameOver.innerHTML = `GAME OVER ! YOU WON ! 🎉 🥇 🏆 🎊`;
@@ -105,7 +95,6 @@ function endgame() {
         playerChoicePaper.removeEventListener("click", game);
         playerChoiceScissors.removeEventListener("click", game);
     } else if (computerScore === 5) {
-        console.log("kaybettin")
         playerScore = 0;
         computerScore = 0;
         gameOver.innerHTML = `GAME OVER ! YOU LOST ! 😕 😞 😟 😢`;
@@ -118,7 +107,6 @@ function endgame() {
 
 
 playAgain.addEventListener("click", function() {
-    console.log("tıkladın")
     playerScore = 0;
     computerScore = 0;
     round = 0;
