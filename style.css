@@ -99,3 +99,29 @@ h2 {
     text-shadow: 5px 4px 3px rgb(0, 0, 0);
     text-align: center;
 }
+
+.last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.playAgain {
+    width: 600px;
+    height: 120px;
+    line-height: 120px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transform-origin: center;
+}
+
+.playAgain:hover {
+    transform: scale(1.1);
+}
+
+.playAgain:active {
+    transition: transform 0.1s;
+    transform: scale(0.9);
+}

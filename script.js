@@ -20,7 +20,7 @@ let computerScore = 0;
 let getPlayerChoice;
 let round = 0;
 
-playAgain.style.visibility = "hidden";
+/* playAgain.style.visibility = "hidden"; */
 
 playerChoiceRock.addEventListener("click", function() {
    getPlayerChoice = "rock";
