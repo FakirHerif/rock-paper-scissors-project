@@ -20,6 +20,8 @@ let computerScore = 0;
 let getPlayerChoice;
 let round = 0;
 
+playAgain.style.visibility = "hidden";
+
 playerChoiceRock.addEventListener("click", function() {
    getPlayerChoice = "rock";
    console.log(getPlayerChoice);
@@ -98,7 +100,7 @@ function endgame() {
         console.log("kazandın");
         playerScore = 0;
         computerScore = 0;
-        gameOver.innerHTML = `GAME OVER ! YOU WON ! TRY AGAIN !!!`;
+        gameOver.innerHTML = `GAME OVER ! YOU WON ! 🎉 🥇 🏆 🎊`;
         playerChoiceRock.removeEventListener("click", game);
         playerChoicePaper.removeEventListener("click", game);
         playerChoiceScissors.removeEventListener("click", game);
@@ -106,12 +108,12 @@ function endgame() {
         console.log("kaybettin")
         playerScore = 0;
         computerScore = 0;
-        gameOver.innerHTML = `GAME OVER ! YOU LOST ! TRY AGAIN !!!`;
+        gameOver.innerHTML = `GAME OVER ! YOU LOST ! 😕 😞 😟 😢`;
         playerChoiceRock.removeEventListener("click", game);
         playerChoicePaper.removeEventListener("click", game);
         playerChoiceScissors.removeEventListener("click", game);
     }
-    playAgain.disabled = false; 
+    playAgain.style.visibility = "visible"; 
 }
 
 
@@ -127,13 +129,13 @@ playAgain.addEventListener("click", function() {
     playerChoiceScissors.addEventListener("click", game);
     showScore.innerHTML = "CHOICE YOUR WEAPONS !!! 💥 💥 💥";
     gameOver.innerHTML = "";
+    playAgain.style.visibility = "hidden";
 
 
     document.querySelector(`.player${getPlayerChoice.charAt(0).toUpperCase() + getPlayerChoice.slice(1)}`).style.backgroundColor = "white";
 
     document.querySelector(`.computer${getComputerChoice.charAt(0).toUpperCase() + getComputerChoice.slice(1)}`).style.backgroundColor = "white";
 
-    playAgain.disabled = true;
 });
 
 
